@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="spacer"></span>
+
+    <mat-icon *ngIf="$isLoading | async">autorenew</mat-icon>
+
+    <ng-container *ngIf="($isLoading | async) === false">
+
+        <ng-container *ngIf="$isLogedin | async">
+            <ng-container *ngIf="($userProfile | async) as profile">
+                <span> {{profile?.username}} </span>
+                <button mat-icon-button (click)="onLogoutClick()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </ng-container>
+
+        </ng-container>
+        <ng-container *ngIf="($isLogedin | async) === false">
+            <button mat-icon-button (click)="onLoginClick()">
+                <mat-icon>login</mat-icon>
+            </button>
+        </ng-container>
+
+    </ng-container>
+</mat-toolbar>

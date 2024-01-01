@@ -1,0 +1,6 @@
+@DynamicConfig.Server.Web_HostAddress = http://localhost:5171
+
+GET {{DynamicConfig.Server.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
